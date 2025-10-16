@@ -1,18 +1,15 @@
-# Arrow Travel Tracker 2025
+# Arrow Travel Tracker (Hybrid)
 
-This is an interactive **Arrow employee travel tracker** built with **Streamlit**.  
-It allows you to:
+Hybrid architecture:
+- **Streamlit backend** (app.py): authentication, add trips, CSV persistence, JSON endpoint
+- **Vercel proxy** (api/proxy.js): fetches Streamlit JSON and adds CORS
+- **React frontend** (frontend/): beautiful dashboard that reads live data from the proxy
 
-- Add new travel trips live
-- Track **total travel days used**
-- Track **days remaining from 250**
-- See **visual charts with progress bars and airplane emojis**
-- Highlight employees close to the 250-day limit
+## Quick local run (backend only)
 
-## Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/arrow-travel-tracker.git
-cd arrow-travel-tracker
+1. Python environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate      # mac/linux
+   venv\Scripts\activate         # windows
+   pip install -r requirements.txt
